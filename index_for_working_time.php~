@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <title>Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+   <h1> <p style='color:white;'>Display the number of years each employee has been working since they joined  </p></h1>
+    <form action="search_for_working_time.php" method="GET">
+        <input type="submit" value="Search" />
+    </form>
+</body>
+</html>

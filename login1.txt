@@ -1,0 +1,83 @@
+<?php
+//$username = null;
+//$password = null;
+ob_start();
+$host="localhost"; // Host name 
+$username="root"; // Mysql username 
+$password="root"; // Mysql password 
+$db_name="staffinfo"; // Database name 
+$tbl_name="authenticate"; // Table name
+
+// Connect to server and select databse.
+mysql_connect("$host", "$username", "$password") or die(mysql_error());
+//echo "Connected to MySQL<br />";
+mysql_select_db("$db_name") or die(mysql_error());
+//echo "Connected to Database<br />";
+// Define $username and $password 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+	if(!empty($_POST["username"]) && !empty($_POST["password"])) {
+		$username = $_POST["username"];
+		$password = $_POST["password"];
+		$username = stripslashes($username);
+		$password = stripslashes($password);
+		$username = mysql_real_escape_string($username);
+		$password = mysql_real_escape_string($password);
+		
+		
+		$sql="SELECT * FROM $tbl_name WHERE username='$username' and password='$password'";
+		$result=mysql_query($sql);
+
+		// Mysql_num_row is counting table row
+		$count=mysql_num_rows($result);
+		if($count == 1) {
+			session_start();
+			$_SESSION["authenticated"] = 'true';
+			header('Location: profile.php');
+		}
+		else {
+		  echo "Invalid username or password!!";
+		  //		  header('Location: login.php');
+		}
+		
+	} else {
+		header('Location: login.php');
+	}
+} else {
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Login</title>
+	
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="animate.css">
+        <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+<div id = "container">
+
+    <form id="login" method="post">
+    <label for="name">Username:</label>
+    <input id="username" name="username" type="name">
+			<label for="password">Password:</label>
+			
+			<input id="password" name="password" type="password">					
+			<div id = "lower">
+			
+			<input type="submit" value="Login">
+			  </div>
+		</form>
+     
+</div>
+
+</body>
+</html>
+						<?php 
+						} 
+			ob_end_flush();
+?>

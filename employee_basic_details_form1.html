@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Staff Information System</title>
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery/jquery.gallerax-0.2.js"></script>
+<style type="text/css">
+@import "gallery.css";
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="firstpage.html">Staff Information System</a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="employee_basic_details_form1.html">Basic Details</a></li>
+			<li><a href="personal_details_form1.html">Personal Details</a></li>
+			<li><a href="academic_qualification.html">Academic Qualification </a></li>
+			<li><a href="edit_work_experience_details.php">Work Experience </a></li>
+			<li><a href="time_info.html">Time Info</a></li>
+			<li><a href="salary_info.html">Salary Info</a></li>
+			<li><a href="dependant_info_form1.html">Dependant Info</a></li>			
+			<li><a href="project_list_employees_form.php">Project Of Employees List</a></li>
+			<li><a href="project_list_form.php">Project List</a></li>
+			<li><a href="manager_list.php">Manager List</a></li>
+						
+			
+		</ul>
+	</div>
+	<div id="two-columns">
+		<form action="display_employee_basic_details.php" method="post">
+        <table>
+			<tr>
+                <td>
+                  <p style="color:white">  Employee Id:</p>
+                </td>
+                <td>
+                    <input type="text" id="employee_id" name="employee_id" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                   <p style="color:white"> Middle Name:
+                </td>
+                <td>
+                    <input type="text" id="mname" name="mname" />
+                </td>
+            </tr>
+                      
+			<tr>
+                <td>
+                   <p style="color:white"> First Name:
+                </td>
+                <td>
+                    <input type="text" id="fname" name="fname" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                   <p style="color:white"> Last Name:
+                </td>
+                <td>
+                    <input type="text" id="lname" name="lname" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                  <p style="color:white"> Date Of Birth:
+                </td>
+                <td>
+                    <input type="date" id="dob" name="dob" />
+                </td>
+            </tr>
+            
+			
+            <tr>
+                <td>
+                   <p style="color:white"> Gender:
+                </td>
+                <td>
+                    <select id="gender" name="gender">
+                        <option value="">- Choose -</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </td>
+            </tr>
+						<tr>
+                <td>
+                   <p style="color:white"> Designation:</p>
+                </td>
+                <td>
+                    <input type="text" id="designation" name="designation" />
+                </td>
+            </tr>
+						<tr>
+                <td>
+                   <p style="color:white"> Department:</p>
+                </td>
+                <td>
+                    <input type="text" id="department" name="department" />
+                </td>
+            </tr>
+						<tr>
+                <td>
+                   <p style="color:white"> Date of Joining:</p>
+                </td>
+                <td>
+                    <input type="date" id="date_of_joining" name="date_of_joining" />
+                </td>
+            </tr>
+				<tr>
+                <td>
+                    <p style="color:white">Date of Leaving:</p>
+                </td>
+                <td>
+                    <input type="date" id="date_of_leaving" name="date_of_leaving" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <p style="color:white">Marital Status:</p>
+                </td>
+                <td>
+                    <select id="marital_status" name="marital_status">
+                        <option value="">- Choose -</option>
+                        <option value="Female">Single</option>
+                        <option value="Male">Married</option>
+						<option value="Male">Divorced</option>
+						
+                    </select>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                   <p style="color:white"> Blood Group:
+                </td>
+                <td>
+                    <input type="text" id="blood_group" name="blood_group" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                   <p style="color:white"> Nationality:</p>
+                </td>
+                <td>
+                    <input type="text" id="nationality" name="nationality" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                   <p style="color:white"> Pan Number:</p>
+                </td>
+                <td>
+                    <input type="text" id="pan_no" name="pan_no" />
+                </td>
+            </tr>
+
+
+			
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" id="submit" value="Save" />
+                    <input type="reset" id="reset" value="Reset" />
+					
+                </td>
+            </tr>
+        </table>
+    </form>
+		<div id="col2"><img src="images/download.jpg" alt="" width="260" height="240" class="image-style" />
+			<div class="text-style"></div>
+		</div>
+	</div>
+	<!-- end #menu -->
+	
+		<!-- end #page --> 
+</div>
+<div id="footer">
+	<p>Staff Information System<a href="http://www.freecsstemplates.org"> DBMS</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

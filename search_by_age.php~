@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : SimpleDisplay 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120611
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Staff Information System</title>
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery/jquery.gallerax-0.2.js"></script>
+<style type="text/css">
+@import "gallery.css";
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Staff Information System</a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">Home</a></li>
+			<li><a href="login.php">Login</a></li>
+			<li><a href="employee_basic_details_form1.html">New User</a></li>
+			<li><a href="#">Search</a></li>
+			
+			<li class="last"><a href="#">Contact</a></li>
+		</ul>
+	</div>
+<?php
+mysql_connect("localhost", "root", "root") or die("Error connecting to database: ".mysql_error());
+mysql_select_db("EMPLOYEE") or die(mysql_error());
+?>
+ 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Search results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<?php
+ $query = $_GET['query'];     
+$min_length = 1;
+if(strlen($query) >= $min_length){ 
+         
+  $query = htmlspecialchars($query);
+  // changes characters used in html to their equivalents, for example: < to &gt;
+         
+  $query = mysql_real_escape_string($query);
+         
+  $raw_results = mysql_query("select * from employee_basic_details where timestampdiff(year,dob, curdate()) > $query ") or die(mysql_error());
+             
+    if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+      $fields_num = MYSQL_NUM_FIELDS($raw_results);
+
+      ECHO "<h1>Employee_Basic_Details{$table}</h1>";
+      ECHO "<table border='1' cellpadding='5' cellspacing='5'><tr>";
+      // printing table headers
+      FOR($i=0; $i<$fields_num; $i++)
+        {
+	  $field = MYSQL_FETCH_FIELD($raw_results);
+	  ECHO "<td>{$field->name}</td>";
+        }
+      ECHO "</tr>\n";
+      // printing table rows
+      WHILE($row = MYSQL_FETCH_ROW($raw_results))
+        {
+	  ECHO "<tr>";
+
+	  // $row is array... foreach( .. ) puts every element
+	  // of $row to $cell variable
+	  FOREACH($row AS $cell)
+            ECHO "<td>$cell</td>";
+
+	  ECHO "</tr>\n";
+        }
+      
+      
+    }
+    else{ 
+      echo "No results";
+    }   
+}
+else{ 
+  echo "Minimum length is ".$min_length;
+}
+?>
+</div>
+<div id="footer">
+	
+</div>
+<!-- end #footer -->
+</body>
+</html>
+</body>
+</html>
